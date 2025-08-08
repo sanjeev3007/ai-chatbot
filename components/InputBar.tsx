@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Send, Loader2, Clock, Square } from 'lucide-react';
+import { Send, Clock, Square } from 'lucide-react';
 
 interface InputBarProps {
   onSubmit: (input: string) => void;
@@ -103,7 +103,7 @@ export default function InputBar({
     <input
       value={input}
       onChange={(e) => setInput(e.target.value)}
-      placeholder="Type your message...q"
+      placeholder="Type your message..."
       disabled={disabled}
       className="flex-1 border-none outline-none focus:outline-none focus:ring-0 focus:border-none bg-transparent text-gray-100 placeholder-gray-500 text-sm leading-relaxed"
     />

@@ -2,8 +2,20 @@
 import { Bot, User } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 
+interface MessagePart {
+  type: string;
+  text?: string;
+  [key: string]: unknown;
+}
+
+interface Message {
+  id: string;
+  role: 'user' | 'assistant' | 'system';
+  parts: MessagePart[];
+}
+
 interface MessageListProps {
-  messages: any[];
+  messages: Message[];
   status: string;
   bottomRef: React.RefObject<HTMLDivElement>;
 }
@@ -28,7 +40,7 @@ export default function MessageList({ messages, status, bottomRef }: MessageList
       
       )}
 
-      {messages.map((message: any, index: number) => {
+      {messages.map((message: Message, index: number) => {
         const prev = messages[index - 1];
         const isRoleChange = prev && prev.role !== message.role;
 
@@ -63,7 +75,7 @@ export default function MessageList({ messages, status, bottomRef }: MessageList
                 }`}
               >
                 {message.parts.map(
-                  (part: any, i: number) =>
+                  (part: MessagePart, i: number) =>
                     part.type === 'text' && (
                       <div key={i} className="prose prose-sm max-w-none prose-invert">
                         <ReactMarkdown 
