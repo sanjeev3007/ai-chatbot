@@ -15,7 +15,7 @@ export default function Page() {
               </div>
               <div>
                 <h1 className="text-xl font-bold text-white">AI Chat Assistant</h1>
-                <p className="text-sm text-gray-400">Powered by advanced AI technology</p>
+                <p className="text-sm text-gray-400">Powered by BuildFastWithAI</p>
               </div>
             </div>
             
